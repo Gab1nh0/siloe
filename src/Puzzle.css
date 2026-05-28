@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+/* ── Variables (compartidas con el resto de la app) ── */
+:root {
+  --cream:       #F2E8D5;
+  --bark:        #8B6F47;
+  --bark-light:  #B8956A;
+  --bark-pale:   rgba(184,149,106,0.15);
+  --ink:         #2C2416;
+  --ink-muted:   rgba(44,36,22,0.5);
+  --ink-faint:   rgba(44,36,22,0.2);
+  --white-glass: rgba(255,255,255,0.8);
+}
+
+/* ── Overlay / Modal ── */
+.puzzle-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(44, 36, 22, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: overlay-in 0.3s ease forwards;
+  padding: 24px;
+}
+
+@keyframes overlay-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Modal card ── */
+.puzzle-modal {
+  background: var(--cream);
+  border-radius: 28px;
+  width: 100%;
+  max-width: 400px;
+  padding: 28px 24px 32px;
+  box-shadow: 0 32px 80px rgba(44,36,22,0.25), 0 4px 16px rgba(44,36,22,0.1);
+  animation: modal-up 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.puzzle-modal::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--bark), var(--bark-light), var(--bark));
+}
+
+@keyframes modal-up {
+  from { opacity: 0; transform: translateY(40px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+/* ── Header del modal ── */
+.puzzle-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.puzzle-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.puzzle-title em {
+  font-style: italic;
+  color: var(--bark);
+}
+
+.puzzle-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink-faint);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-muted);
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s;
+  margin-top: 2px;
+}
+
+.puzzle-close-btn:hover {
+  background: var(--bark-pale);
+  border-color: var(--bark-light);
+  color: var(--bark);
+}
+
+.puzzle-subtitle {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+/* ── Moves counter ── */
+.puzzle-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.puzzle-moves {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--bark);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.puzzle-moves-icon {
+  font-size: 14px !important;
+}
+
+.puzzle-preview-btn {
+  font-size: 11px;
+  color: var(--ink-muted);
+  background: var(--bark-pale);
+  border: 1px solid rgba(184,149,106,0.25);
+  border-radius: 999px;
+  padding: 4px 12px;
+  cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.puzzle-preview-btn:hover {
+  background: rgba(184,149,106,0.28);
+  color: var(--bark);
+}
+
+/* ── Tablero ── */
+.puzzle-board-wrap {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.puzzle-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 3px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(44,36,22,0.12);
+  box-shadow: 0 4px 20px rgba(44,36,22,0.12);
+  aspect-ratio: 4 / 6;
+}
+
+/* ── Pieza ── */
+.puzzle-piece {
+  position: relative;
+  cursor: grab;
+  overflow: hidden;
+  border-radius: 2px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.puzzle-piece:active { cursor: grabbing; }
+
+.puzzle-piece--correct {
+  box-shadow: inset 0 0 0 2px rgba(184,149,106,0.7);
+}
+
+/* Pieza que estás arrastrando */
+.puzzle-piece--dragging {
+  opacity: 0.5;
+  transform: scale(0.9);
+  cursor: grabbing;
+  z-index: 2;
+}
+
+/* Destino donde va a caer */
+.puzzle-piece--target {
+  transform: scale(1.07);
+  box-shadow: 0 0 0 3px var(--bark-light), 0 6px 18px rgba(44,36,22,0.2);
+  z-index: 3;
+}
+
+/* ── Preview overlay ── */
+.puzzle-preview-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  z-index: 5;
+  animation: fade-in 0.2s ease;
+}
+
+.puzzle-preview-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.puzzle-preview-label {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(44,36,22,0.7);
+  color: rgba(255,255,255,0.9);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-family: 'Jost', sans-serif;
+  white-space: nowrap;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Estado ganador ── */
+.puzzle-win {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 12px 0 4px;
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.puzzle-win-icon {
+  font-size: 40px !important;
+  color: var(--bark-light);
+  margin-bottom: 12px;
+  animation: pop 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+
+@keyframes pop {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.puzzle-win-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.puzzle-win-sub {
+  font-size: 13px;
+  color: var(--ink-muted);
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+
+/* ── Botón del modal ── */
+.puzzle-btn {
+  width: 100%;
+  padding: 15px 24px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, var(--bark), var(--bark-light));
+  color: white;
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.puzzle-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.puzzle-btn--secondary {
+  background: transparent;
+  border: 1.5px solid var(--ink-faint);
+  color: var(--ink-muted);
+  margin-top: 10px;
+}
+
+.puzzle-btn--secondary:hover {
+  border-color: var(--bark-light);
+  color: var(--bark);
+  transform: none;
+}
+
+/* ── Pieza animada al moverse ── */
+@keyframes piece-move {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+.puzzle-piece--moving {
+  animation: piece-move 0.15s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

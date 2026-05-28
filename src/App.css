@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+@theme {
+  --color-cream: #F2E8D5;
+  --color-cream-dark: #E8D9BE;
+  --color-bark: #8B6F47;
+  --color-bark-light: #B8956A;
+  --color-ink: #2C2416;
+  --color-mist: rgba(255,255,255,0.7);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background-color: var(--color-cream);
+}
+
+.font-display { font-family: 'Cormorant Garamond', serif; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.8; }
+}
+
+.fade-up { animation: fadeUp 0.7s ease forwards; opacity: 0; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.25s; }
+.delay-3 { animation-delay: 0.4s; }
+
+.card-lesson {
+  background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6));
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(184, 149, 106, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(44,36,22,0.07), 0 1px 3px rgba(44,36,22,0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.card-lesson:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(44,36,22,0.12), 0 2px 6px rgba(44,36,22,0.06);
+}
+
+.dot-ornament {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--color-bark-light);
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+.progress-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-bark), var(--color-bark-light));
+  border-radius: 2px;
+}
+
+.chevron-circle {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-bark), var(--color-bark-light));
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  font-size: 18px;
+  flex-shrink: 0;
+}
