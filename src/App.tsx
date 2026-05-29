@@ -44,7 +44,7 @@ function App() {
             Fundamentos
           </h2>
           <p style={{ fontSize: '15px', lineHeight: 1.65, color: 'rgba(44,36,22,0.55)', fontWeight: 300 }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.
+            Inicia tu camino en Siloé con esta serie de 7 días donde exploraremos juntos los fundamentos de la vida cristiana a través de reflexiones y actividades prácticas que te ayudarán a crecer en tu fe y amor por Dios.
           </p>
 
           {/* Progreso */}
@@ -77,7 +77,7 @@ function App() {
                 Día 1
               </p>
               <h3 className="font-display" style={{ fontSize: '22px', fontWeight: 400, color: 'var(--color-ink)', lineHeight: 1.2 }}>
-                Gracia Infinita
+                La Fe sin subestimar
               </h3>
             </div>
             <div className="chevron-circle" onClick={() => setPantalla('diaUno')}

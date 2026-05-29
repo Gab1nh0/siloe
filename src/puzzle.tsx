@@ -215,7 +215,7 @@ export default function Puzzle({ onClose, onComplete }: PuzzleProps) {
         {/* Estado ganador */}
         {won && (
           <div className="puzzle-win">
-            <span className="material-symbols-sharp puzzle-win-icon">emoji_events</span>
+            <span className="material-symbols-sharp puzzle-win-icon">check_small</span>
             <h3 className="puzzle-win-title">¡Completado!</h3>
             <p className="puzzle-win-sub">Terminaste en {moves} movimientos</p>
             <button className="puzzle-btn" onClick={onClose}>
