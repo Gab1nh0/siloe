@@ -107,7 +107,7 @@ function DiaUno({ onBack }: DiaUnoProps) {
           <h3 className="dia-uno-reflection-title">Para meditar hoy</h3>
 
           {[
-            'Reconoce en cual situación actual de tu vida necesitas reforzar la fe.,
+            'Reconoce en cual situación actual de tu vida necesitas reforzar la fe.',
             'Empieza a buscar más de su presencia leyendo la palabra para que tengas una dirección.',
             'Ten siempre presente que bienaventurados son los que creen aún sin ver.'
           ].map((pregunta, i) => (
