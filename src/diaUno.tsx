@@ -51,7 +51,7 @@ function DiaUno({ onBack }: DiaUnoProps) {
           </div>
 
           <h1 className="dia-uno-title">
-            Gracia<br /><em>Infinita</em>
+            La Fe<br /><em>sin subestimar</em>
           </h1>
           <p className="dia-uno-subtitle">Una meditación sobre el amor que no cesa</p>
 
@@ -65,10 +65,9 @@ function DiaUno({ onBack }: DiaUnoProps) {
         {/* Versículo */}
         <div className="dia-uno-verse-card fade-up delay-3">
           <p className="dia-uno-verse-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            “Una meditación sobre la fe: certeza de lo que se espera, la convicción de lo que no se ve”
           </p>
-          <span className="dia-uno-verse-ref">Lorem 3:16 — versión de referencia</span>
+          <span className="dia-uno-verse-ref">Hebreos 11:1</span>
         </div>
 
         {/* Cuerpo */}
@@ -76,29 +75,30 @@ function DiaUno({ onBack }: DiaUnoProps) {
           <p className="dia-uno-section-label">Reflexión</p>
 
           <p className="dia-uno-body-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur.
+            Ella había oído de Jesús, así que se acercó por detrás entre la multitud y 
+            tocó su túnica. Pues pensó: Si tan solo tocara su túnica, quedaría sana. 
+            Al instante, la hemorragia se detuvo, y ella pudo sentir en su cuerpo que había 
+            sido sanada de su terrible condición. Marcos 5:27-29.
           </p>
 
           <p className="dia-uno-body-text">
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-            deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus
-            error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+            La mujer estuvo bajo una condición por años la cual los médicos no encontraban cura, 
+            sin embargo, esto no fue un impedimento para que ella tuviera la certeza y convicción 
+            de que podía ser sanada, aún sin haber visto a Jesús solo escuchó sobré él, ella confió 
+            y creyó tanto que tenía la seguridad plena y genuina de que tan solo tocando el BORDE DE 
+            SU TÚNICA, ella quedaría completamente sana, tal y como sucedió.
           </p>
 
           <div className="dia-uno-pull-quote">
             <p>
-              "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-              sed quia consequuntur magni dolores."
+              “Jehová se especializa en lo imposible”
             </p>
           </div>
 
           <p className="dia-uno-body-text">
-            Ut labore et dolore magnam aliquam quaerat voluptatem. Quis autem vel eum iure
-            reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
-            vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
+            En cuántas situaciones hemos dudado del poder de Dios al enfrentarnos con un problema que 
+            vemos de gran magnitud en nuestras vidas, dejando al lado las promesas fieles del Señor. Es 
+            aquí donde debemos tener la fe firme y confianza en Él.
           </p>
         </div>
 
@@ -107,9 +107,9 @@ function DiaUno({ onBack }: DiaUnoProps) {
           <h3 className="dia-uno-reflection-title">Para meditar hoy</h3>
 
           {[
-            'Lorem ipsum dolor sit amet, quid de te ipse sentis?',
-            'Ut enim ad minima veniam, quis vestrum exercitationem ullam corporis?',
-            'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet?',
+            'Reconoce en cual situación actual de tu vida necesitas reforzar la fe.,
+            'Empieza a buscar más de su presencia leyendo la palabra para que tengas una dirección.',
+            'Ten siempre presente que bienaventurados son los que creen aún sin ver.',
           ].map((pregunta, i) => (
             <div className="dia-uno-reflection-item" key={i}>
               <span className="dia-uno-reflection-num">{i + 1}.</span>
