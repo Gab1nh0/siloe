@@ -53,7 +53,7 @@ function DiaUno({ onBack }: DiaUnoProps) {
           <h1 className="dia-uno-title">
             La Fe<br /><em>sin subestimar</em>
           </h1>
-          <p className="dia-uno-subtitle">Una meditación sobre el amor que no cesa</p>
+          <p className="dia-uno-subtitle">“Una meditación sobre la fe: certeza de lo que se espera, la convicción de lo que no se ve”</p>
 
           <div className="dia-uno-divider">
             <div className="dia-uno-divider-line" />
@@ -65,7 +65,7 @@ function DiaUno({ onBack }: DiaUnoProps) {
         {/* Versículo */}
         <div className="dia-uno-verse-card fade-up delay-3">
           <p className="dia-uno-verse-text">
-            “Una meditación sobre la fe: certeza de lo que se espera, la convicción de lo que no se ve”
+            Una mujer de la multitud hacía doce años que sufría una hemorragia continua. Había sufrido mucho con varios médicos y, a lo largo de los años, había gastado todo lo que tenía para poder pagarles, pero nunca mejoró. De hecho, se puso peor. Marcos 5:25-26
           </p>
           <span className="dia-uno-verse-ref">Hebreos 11:1</span>
         </div>

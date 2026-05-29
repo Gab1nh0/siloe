@@ -77,7 +77,7 @@ function App() {
                 Día 1
               </p>
               <h3 className="font-display" style={{ fontSize: '22px', fontWeight: 400, color: 'var(--color-ink)', lineHeight: 1.2 }}>
-                La Fe sin subestimar
+                La Fe Sin Subestimar
               </h3>
             </div>
             <div className="chevron-circle" onClick={() => setPantalla('diaUno')}
