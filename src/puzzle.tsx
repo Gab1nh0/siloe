@@ -2,12 +2,12 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import './Puzzle.css'
 
 // ── Config ────────────────────────────────────────────────
-const COLS = 4
-const ROWS = 6
+const COLS = 3
+const ROWS = 3
 const TOTAL = COLS * ROWS
 
 // Cambia esta URL por tu imagen cuando la tengas
-const IMAGE_URL = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80'
+const IMAGE_URL = 'https://res.cloudinary.com/dnvwjkcpj/image/upload/v1780080564/WhatsApp_Image_2026-05-29_at_1.15.26_PM_gwxeei.jpg'
 
 // ── Helpers ───────────────────────────────────────────────
 function createShuffled(): number[] {
