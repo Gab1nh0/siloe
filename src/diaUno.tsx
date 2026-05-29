@@ -51,7 +51,7 @@ function DiaUno({ onBack }: DiaUnoProps) {
           </div>
 
           <h1 className="dia-uno-title">
-            La Fe<br /><em>sin subestimar</em>
+            La Fe<br /><em>Sin Subestimar</em>
           </h1>
           <p className="dia-uno-subtitle">“Una meditación sobre la fe: certeza de lo que se espera, la convicción de lo que no se ve”
             Hebreos 11:1
