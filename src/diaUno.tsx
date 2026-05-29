@@ -109,7 +109,7 @@ function DiaUno({ onBack }: DiaUnoProps) {
           {[
             'Reconoce en cual situación actual de tu vida necesitas reforzar la fe.,
             'Empieza a buscar más de su presencia leyendo la palabra para que tengas una dirección.',
-            'Ten siempre presente que bienaventurados son los que creen aún sin ver.',
+            'Ten siempre presente que bienaventurados son los que creen aún sin ver.'
           ].map((pregunta, i) => (
             <div className="dia-uno-reflection-item" key={i}>
               <span className="dia-uno-reflection-num">{i + 1}.</span>
