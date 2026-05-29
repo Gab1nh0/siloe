@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
-import './puzzle.css'
+import './Puzzle.css'
 
 // ── Config ────────────────────────────────────────────────
 const COLS = 4
