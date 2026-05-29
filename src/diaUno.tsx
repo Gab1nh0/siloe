@@ -67,7 +67,7 @@ function DiaUno({ onBack }: DiaUnoProps) {
         {/* Versículo */}
         <div className="dia-uno-verse-card fade-up delay-3">
           <p className="dia-uno-verse-text">
-            Una mujer de la multitud hacía doce años que sufría una hemorragia continua. Había sufrido mucho con varios médicos y, a lo largo de los años, había gastado todo lo que tenía para poder pagarles, pero nunca mejoró. De hecho, se puso peor. Marcos 5:25-26
+            Una mujer de la multitud hacía doce años que sufría una hemorragia continua. Había sufrido mucho con varios médicos y, a lo largo de los años, había gastado todo lo que tenía para poder pagarles, pero nunca mejoró. De hecho, se puso peor.
           </p>
           <span className="dia-uno-verse-ref">Marcos 5:25-26</span>
         </div>
